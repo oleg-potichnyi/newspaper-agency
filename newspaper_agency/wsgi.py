@@ -1,5 +1,5 @@
 """
-WSGI config for newspapers project.
+WSGI config for newspaper_agency project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'newspapers.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "newspaper_agency.settings")
 
 application = get_wsgi_application()
