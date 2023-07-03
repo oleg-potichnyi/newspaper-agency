@@ -14,7 +14,7 @@ class Topic(models.Model):
 
 
 class Redactor(AbstractUser):
-    years_of_experience = models.IntegerField()
+    years_of_experience = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = "redactor"
@@ -34,7 +34,7 @@ class Newspaper(models.Model):
         auto_now_add=True, verbose_name="Date Published"
     )
     topic = models.ManyToManyField(Topic, related_name="newspaper")
-    publishers = models.ManyToManyField(Redactor, related_name="newspaper")
+    publishers = models.ManyToManyField(Redactor, related_name="newspapers")
 
     def __str__(self) -> str:
         return self.title

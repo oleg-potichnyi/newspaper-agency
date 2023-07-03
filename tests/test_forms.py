@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from agency.forms import NewspaperSearchForm, RedactorSearchForm
+from agency.forms import NewspaperSearchForm
 
 
 class NewspaperSearchFormTests(TestCase):

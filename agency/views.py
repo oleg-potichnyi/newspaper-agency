@@ -66,6 +66,7 @@ class TopicUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Topic
     fields = "__all__"
     success_url = reverse_lazy("agency:topic-list")
+    context_object_name = "topic"
 
 
 class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -76,6 +77,7 @@ class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
     paginate_by = 5
+    context_object_name = "newspaper_list"
 
     def get_context_data(self, *, object_list=None, **kwargs) -> None:
         context = super(NewspaperListView, self).get_context_data(**kwargs)
@@ -84,10 +86,10 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self) -> None:
-        queryset = Newspaper.objects.select_related("topic")
+        queryset = Newspaper.objects.prefetch_related("topic")
         form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
-            return self.queryset.filter(
+            return queryset.filter(
                 title__icontains=form.cleaned_data["title"]
             )
         return queryset

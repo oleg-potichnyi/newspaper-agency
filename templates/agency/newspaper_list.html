@@ -18,7 +18,10 @@
       {% for newspaper in newspaper_list %}
         <li>
           <a href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
-          {{ newspaper.title }} ({{ newspaper.topic.name }})
+          {{ newspaper.title }}
+          {% for topic in newspaper.topic.all %}
+          {{ topic.name }}
+          {% endfor %}
         </li>
       {% endfor %}
     </ul>

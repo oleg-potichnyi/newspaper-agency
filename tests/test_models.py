@@ -7,7 +7,7 @@ from agency.models import Topic, Newspaper
 
 class ModelsTests(TestCase):
     def test_topic_str(self) -> None:
-        topic = Topic.objects.create(name="test")
+        topic = Topic.objects.get(name="test")
         self.assertEqual(str(topic), f"{topic.name}")
 
     def test_redactor_str(self) -> None:
@@ -19,7 +19,7 @@ class ModelsTests(TestCase):
         )
         self.assertEqual(
             str(redactor),
-            f"{redactor.username} ({redactor.first_name} {redactor.last_name})"
+            f"{redactor.username} {redactor.first_name} {redactor.last_name}"
         )
 
     def test_newspaper_str(self) -> None:
