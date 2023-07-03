@@ -27,18 +27,16 @@ class Newspaper(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     published_date = models.DateField(
-        auto_now_add=True,
-        verbose_name="Date Published"
+        auto_now_add=True, verbose_name="Date Published"
     )
     topic = models.ManyToManyField(Topic, related_name="newspaper")
-    publishers = models.ManyToManyField(
-        Redactor,
-        related_name="newspaper"
-    )
+    publishers = models.ManyToManyField(Redactor, related_name="newspaper")
 
     def __str__(self) -> str:
         return self.title
 
 
-Redactor._meta.get_field("groups").remote_field.related_name = "redactor_groups"
-Redactor._meta.get_field("user_permissions").remote_field.related_name = "redactor_set"
+Redactor._meta.get_field("groups").remote_field.related_name =\
+    "redactor_groups"
+Redactor._meta.get_field("user_permissions").remote_field.related_name =\
+    "redactor_set"
