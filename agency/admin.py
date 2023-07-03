@@ -1,14 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-
 from agency.models import Topic, Newspaper, Redactor
-
-
-@admin.register(Newspaper)
-class NewspaperAdmin(admin.ModelAdmin):
-    list_display = ("title", "content", "published_date")
-    list_filter = ("topic",)
-    search_fields = ("title",)
 
 
 @admin.register(Redactor)
@@ -17,7 +9,7 @@ class RedactorAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         (("Additional info", {"fields": ("years_of_experience",)}),)
     )
-    dd_fieldsets = UserAdmin.add_fieldsets + (
+    add_fieldsets = UserAdmin.add_fieldsets + (
         (
             (
                 "Additional info",
@@ -31,6 +23,13 @@ class RedactorAdmin(UserAdmin):
             ),
         )
     )
+
+
+@admin.register(Newspaper)
+class NewspaperAdmin(admin.ModelAdmin):
+    list_display = ("title", "content", "published_date")
+    list_filter = ("topic",)
+    search_fields = ("title",)
 
 
 admin.site.register(Topic)

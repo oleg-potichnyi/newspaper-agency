@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 
 class Topic(models.Model):
@@ -22,6 +23,9 @@ class Redactor(AbstractUser):
     def __str__(self) -> str:
         return f"{self.username} {self.first_name} {self.last_name}"
 
+    def get_absolute_url(self) -> str:
+        return reverse("agency:redactor-detail", kwargs={"pk": self.pk})
+
 
 class Newspaper(models.Model):
     title = models.CharField(max_length=255)
@@ -34,9 +38,3 @@ class Newspaper(models.Model):
 
     def __str__(self) -> str:
         return self.title
-
-
-Redactor._meta.get_field("groups").remote_field.related_name =\
-    "redactor_groups"
-Redactor._meta.get_field("user_permissions").remote_field.related_name =\
-    "redactor_set"

@@ -5,10 +5,16 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from agency.forms import TopicSearchForm, NewspaperSearchForm, NewspaperForm, RedactorSearchForm
+from agency.forms import (
+    TopicSearchForm,
+    NewspaperSearchForm,
+    NewspaperForm,
+    RedactorSearchForm,
+)
 from agency.models import Redactor, Topic, Newspaper
 
 
+@login_required()
 def index(request) -> None:
     """View function for the home page of the site."""
 
@@ -23,6 +29,7 @@ def index(request) -> None:
         "num_redactors": num_redactors,
         "num_topics": num_topics,
         "num_newspapers": num_newspapers,
+        "num_visits": num_visits + 1,
     }
     return render(request, "agency/index.html", context=context)
 
@@ -69,7 +76,6 @@ class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
 class NewspaperListView(LoginRequiredMixin, generic.ListView):
     model = Newspaper
     paginate_by = 5
-    queryset = Newspaper.objects.all()
 
     def get_context_data(self, *, object_list=None, **kwargs) -> None:
         context = super(NewspaperListView, self).get_context_data(**kwargs)
@@ -78,12 +84,13 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self) -> None:
-        form = TopicSearchForm(self.request.GET)
+        queryset = Newspaper.objects.select_related("topic")
+        form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
             return self.queryset.filter(
                 title__icontains=form.cleaned_data["title"]
             )
-        return self.queryset
+        return queryset
 
 
 class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
@@ -159,6 +166,5 @@ def toggle_assign_to_newspaper(request, pk) -> HttpResponseRedirect:
     else:
         redactor.newspapers.add(pk)
     return HttpResponseRedirect(reverse_lazy(
-        "agency:newspaper-detail",
-        args=[pk]
+        "agency:newspaper-detail", args=[pk]
     ))

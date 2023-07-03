@@ -41,17 +41,17 @@ urlpatterns = [
         TopicDeleteView.as_view(),
         name="topic-delete",
     ),
-    path(
-        "newspapers/", NewspaperListView.as_view(), name="newspaper-list"
-    ),
+    path("newspapers/", NewspaperListView.as_view(), name="newspaper-list"),
     path(
         "newspapers/<int:pk>/",
         NewspaperDetailView.as_view(),
         name="newspaper-detail"
     ),
-    path("newspapers/create/",
-         NewspaperCreateView.as_view(),
-         name="newspaper-create"),
+    path(
+        "newspapers/create/",
+        NewspaperCreateView.as_view(),
+        name="newspaper-create"
+    ),
     path(
         "newspapers/<int:pk>/update/",
         NewspaperUpdateView.as_view(),
@@ -67,9 +67,7 @@ urlpatterns = [
         toggle_assign_to_newspaper,
         name="toggle-newspaper-assign",
     ),
-    path(
-        "redactors/", RedactorListView.as_view(), name="redactor-list"
-    ),
+    path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path(
         "redactors/<int:pk>/",
         RedactorDetailView.as_view(),
