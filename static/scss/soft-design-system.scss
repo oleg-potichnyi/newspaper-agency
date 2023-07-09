@@ -12,19 +12,19 @@
 // * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 // Bootstrap Functions
-@import "soft-design-system/bootstrap/functions";
+@import "functions";
 
 // Custom Variables
-@import "soft-design-system/custom/variables";
+@import "variables";
 
 // Theme Variables
-@import "soft-design-system/variables";
+@import "variables";
 
 // Bootstrap Core
-@import "soft-design-system/bootstrap/bootstrap";
+@import "bootstrap";
 
 // Theme Core
-@import "soft-design-system/theme";
+@import "theme";
 
 // Custom Variables
-@import "soft-design-system/custom/styles";
+@import "styles";

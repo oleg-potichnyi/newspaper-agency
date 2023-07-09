@@ -31,7 +31,8 @@ class Newspaper(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     published_date = models.DateField(
-        auto_now_add=True, verbose_name="Date Published"
+        auto_now_add=True,
+        verbose_name="Date Published"
     )
     topic = models.ManyToManyField(Topic, related_name="newspaper")
     publishers = models.ManyToManyField(Redactor, related_name="newspapers")

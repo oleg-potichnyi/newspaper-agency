@@ -89,9 +89,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
         queryset = Newspaper.objects.prefetch_related("topic")
         form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
-            return queryset.filter(
-                title__icontains=form.cleaned_data["title"]
-            )
+            return queryset.filter(title__icontains=form.cleaned_data["title"])
         return queryset
 
 
@@ -169,5 +167,6 @@ def toggle_assign_to_newspaper(request, pk) -> HttpResponseRedirect:
     else:
         redactor.newspapers.add(pk)
     return HttpResponseRedirect(reverse_lazy(
-        "agency:newspaper-detail", args=[pk]
+        "agency:newspaper-detail",
+        args=[pk]
     ))
