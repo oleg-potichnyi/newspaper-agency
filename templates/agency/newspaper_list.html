@@ -9,22 +9,33 @@
     </a>
   </h1>
 
-  {% block searh_form %}
+  {% block search_form %}
     {% include "includes/search_form.html"%}
   {% endblock %}
 
   {% if newspaper_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Published date</th>
+      </tr>
+
       {% for newspaper in newspaper_list %}
-        <li>
+      <tr>
+        <td>
           <a href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.id }}</a>
+        </td>
+        <td>
           {{ newspaper.title }}
-          {% for topic in newspaper.topic.all %}
-          {{ topic.name }}
-          {% endfor %}
-        </li>
+        </td>
+        <td>
+          {{ newspaper.published_date }}
+        </td>
+      </tr>
       {% endfor %}
-    </ul>
+
+    </table>
   {% else %}
     <p>There are no newspapers in agency</p>
   {% endif %}

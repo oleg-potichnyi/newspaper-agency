@@ -11,7 +11,11 @@
       Update
     </a>
   </h1>
-  <p>Topic: ({{ newspaper.topic.name }})</p>
+  <p>Topic:
+  {% for topic in newspaper.topic.all %}
+  {{ topic.name }},
+  {% endfor %}
+  </p>
   <h1>
     Redactors
 
@@ -28,7 +32,7 @@
   </h1>
   <hr>
   <ul>
-    {% for redactor in newspaper.redactors.all %}
+    {% for redactor in newspaper.publishers.all %}
       <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
     {% endfor %}
   </ul>

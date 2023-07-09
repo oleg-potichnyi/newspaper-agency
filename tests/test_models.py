@@ -24,5 +24,6 @@ class ModelsTests(TestCase):
 
     def test_newspaper_str(self) -> None:
         topic = Topic.objects.create(name="test")
-        newspaper = Newspaper.objects.create(title="test", topic=topic)
-        self.assertEqual(str(newspaper), newspaper.model)
+        newspaper = Newspaper.objects.create(title="test")
+        newspaper.topic.set([topic])
+        self.assertEqual(str(newspaper), newspaper.title)
