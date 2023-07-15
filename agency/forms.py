@@ -1,7 +1,12 @@
 from django import forms
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import PasswordChangeForm
 
 from agency.models import Newspaper
+
+
+class AgencyPasswordChangeForm(PasswordChangeForm):
+    pass
 
 
 class NewspaperForm(forms.ModelForm):

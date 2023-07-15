@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -10,8 +11,15 @@ from agency.forms import (
     NewspaperSearchForm,
     NewspaperForm,
     RedactorSearchForm,
+    AgencyPasswordChangeForm,
 )
 from agency.models import Redactor, Topic, Newspaper
+
+
+class AgencyPasswordChangeView(PasswordChangeView):
+    form_class = AgencyPasswordChangeForm
+    success_url = reverse_lazy("password_change_done")
+    template_name = "agency/password_change.html"
 
 
 @login_required()

@@ -1,3 +1,4 @@
+from django.contrib.auth.views import PasswordChangeDoneView
 from django.urls import path
 
 from agency.views import (
@@ -16,10 +17,21 @@ from agency.views import (
     RedactorCreateView,
     RedactorUpdateView,
     RedactorDeleteView,
+    AgencyPasswordChangeView,
     toggle_assign_to_newspaper,
 )
 
 urlpatterns = [
+    path(
+        "password-change/",
+        AgencyPasswordChangeView.as_view(),
+        name="agency_password_change"
+    ),
+    path(
+        "password-change/done/",
+        PasswordChangeDoneView.as_view(),
+        name="password_change_done"
+    ),
     path("", index, name="index"),
     path(
         "topics/",

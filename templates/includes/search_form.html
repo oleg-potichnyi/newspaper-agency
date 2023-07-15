@@ -1,6 +1,12 @@
 {% load crispy_forms_tags %}
 
-<form action="" method="get" class="form-inline">
-  {{ search_form|crispy }}
-  <input class="btn btn-secondary mb-3" type="submit" value="🔎">
-</form>
+<div class="container pt-3">
+    <div class="row">
+        <form action="" method="get" class="form-inline">
+            <div class="d-flex">
+                {{ search_form|crispy }}
+                <input class="btn btn-secondary mb-3" type="submit" value="🔎">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container pt-8">
   <h1>
     Topic List
     <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
@@ -47,4 +48,5 @@
   {% else %}
       <p>There are no topics in the agency.</p>
   {% endif %}
+</div>
 {% endblock %}

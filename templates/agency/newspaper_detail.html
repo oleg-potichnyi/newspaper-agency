@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container pt-8">
   <h1>
     {{ newspaper.title }}
     <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
@@ -36,4 +37,5 @@
       <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
     {% endfor %}
   </ul>
+</div>
 {% endblock %}

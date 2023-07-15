@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container pt-8">
   <h1>
     Username: {{ redactor.username }}
     <a href="{% url 'agency:redactor-delete' pk=redactor.id %}" class="btn btn-danger link-to-page">
@@ -30,4 +31,5 @@
       <p>No newspapers!</p>
     {% endfor %}
   </div>
+</div>
 {% endblock %}

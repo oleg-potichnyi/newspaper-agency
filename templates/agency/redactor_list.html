@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container pt-8">
     <h1>
       Redactor List
       <a href="{% url 'agency:redactor-create' %}" class="btn btn-primary link-to-page">
@@ -35,4 +36,5 @@
     {% else %}
       <p>There are no redactors in the agency.</p>
     {% endif %}
+</div>
 {% endblock %}

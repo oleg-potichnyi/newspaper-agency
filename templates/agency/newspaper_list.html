@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div class="container pt-8">
   <h1>
     Newspaper list
     <a href="{% url 'agency:newspaper-create' %}" class="btn btn-primary link-to-page">
@@ -39,4 +39,5 @@
   {% else %}
     <p>There are no newspapers in agency</p>
   {% endif %}
+</div>
 {% endblock %}
