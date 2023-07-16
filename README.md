@@ -16,8 +16,11 @@ cd newspaper-agency
 python3 -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
+Environment variables # Locate the .env.sample file in the project's root directory, rename it to .env`. Open the .env file and update the environment variables with your desired configuration values.Modify variables such as database credentials, API keys, or any other project-specific settings.
+python manage.py migrate # Run this command to apply migrations and update the database schema
 python manage.py runserver
 ```
+## Configuration
 
 ## Features
 
