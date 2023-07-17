@@ -11,16 +11,26 @@ This project was created for managing newspapers and redactors in Agency
 Python3 must be already installed
 
 ```shell
+# Clone the repository:
 git clone https://github.com/oleg-potichnyi/newspaper-agency.git
+# Change directory to the project folder:
 cd newspaper-agency
+# Set up a virtual environment:
 python3 -m venv venv
+# Activate the virtual environment:
 venv\Scripts\activate
+# Install dependencies:
 pip install -r requirements.txt
-Environment variables # Locate the .env.sample file in the project's root directory, rename it to .env`. Open the .env file and update the environment variables with your desired configuration values.Modify variables such as database credentials, API keys, or any other project-specific settings.
-python manage.py migrate # Run this command to apply migrations and update the database schema
+# Environment variables:
+## To use the .env and .env.sample files, simply duplicate the .env.sample file and rename it as .env.
+## Fill in the variables in the .env file with your actual configuration values, 
+## keeping sensitive information private, while the .env.sample file acts as a reference
+## for other developers to understand the required environment variables.
+# Run this command to apply migrations and update the database schema:
+python manage.py migrate
+# Start the development server:
 python manage.py runserver
 ```
-## Configuration
 
 ## Features
 
