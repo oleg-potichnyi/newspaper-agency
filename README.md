@@ -14,11 +14,13 @@ Python3 must be already installed
 # Clone the repository:
 git clone https://github.com/oleg-potichnyi/newspaper-agency.git
 # Change directory to the project folder:
-cd newspaper-agency
+cd newspapers
 # Set up a virtual environment:
 python3 -m venv venv
-# Activate the virtual environment:
+# Activate the virtual environment on Windows:
 venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
 # Install dependencies:
 pip install -r requirements.txt
 # Environment variables:
@@ -37,6 +39,3 @@ python manage.py runserver
 * Authentication functionality for Redactor/User
 * Managing newspapers redactors and topics of publications directly from website interface
 * Powerful admin panel for advanced management
-
-
-
