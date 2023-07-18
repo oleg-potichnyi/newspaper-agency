@@ -21,11 +21,11 @@
     Redactors
 
     {% if newspaper in user.newspapers.all %}
-      <a href="{% url 'agency:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-danger link-to-page">
+      <a href="{% url 'agency:toggle-assign' pk=newspaper.id %}" class="btn btn-danger link-to-page">
         Delete me from this newspaper
       </a>
     {% else %}
-      <a href="{% url 'agency:toggle-newspaper-assign' pk=newspaper.id %}" class="btn btn-success link-to-page">
+      <a href="{% url 'agency:toggle-assign' pk=newspaper.id %}" class="btn btn-success link-to-page">
         Assign me from this newspaper
       </a>
     {% endif %}
