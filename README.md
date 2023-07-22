@@ -39,3 +39,6 @@ python manage.py runserver
 * Authentication functionality for Redactor/User
 * Managing newspapers redactors and topics of publications directly from website interface
 * Powerful admin panel for advanced management
+
+## Demo
+![Demo Image](Demo.png)
