@@ -55,6 +55,8 @@
                           </svg>
                         </div>
                       </div>
+
+
 {#                      Landing Pages#}
 {#                    </div>#}
 {#                    <a href="/" class="dropdown-item border-radius-md">#}
@@ -745,17 +747,36 @@
 {#                </div>#}
 {#              </li>#}
 
-            <div class="p-1 text-center">
-              <a href="{% url 'agency:topic-list' %}"><h5 class="mt-3">Topics</h5></a>
-            </div>
+          <div class="nav-buttons-container">
 
-            <div class="p-1 text-center">
-              <a href="{% url 'agency:newspaper-list' %}"><h5 class="mt-3">Newspapers</h5></a>
-            </div>
+              <div class="p-1 text-center nav-item-button">
+                <a href="{% url 'agency:topic-list' %}"><h5 class="mt-3">Topics</h5></a>
+              </div>
 
-            <div class="p-1 text-center">
-              <a href="{% url 'agency:redactor-list' %}"><h5 class="mt-3">Redactors</h5></a>
-            </div>
+              <div class="p-1 text-center nav-item-button">
+                <a href="{% url 'agency:newspaper-list' %}"><h5 class="mt-3">Newspapers</h5></a>
+              </div>
+
+              <div class="p-1 text-center nav-item-button">
+                <a href="{% url 'agency:redactor-list' %}"><h5 class="mt-3">Redactors</h5></a>
+              </div>
+          </div>
+
+            <style>
+              /* Custom class to increase horizontal spacing between nav buttons */
+              .nav-buttons-container {
+                display: flex; /* Use flexbox to stretch the buttons horizontally */
+                justify-content: space-between; /* Add equal spacing between the buttons */
+                margin-top: 15px; /* Add some top margin to separate from the "Page" button */
+              }
+
+              /* Custom class for individual nav buttons */
+              .nav-item-button {
+
+              flex: 1; /* This will make the buttons share equal space */
+              margin-right: 60px; /* Adjust the value as per your requirements */
+              }
+            </style>
 
               {% if request.user.is_authenticated %}
               <li class="nav-item ms-lg-auto">
