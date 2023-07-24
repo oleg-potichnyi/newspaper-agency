@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", default="your secret key")
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 # DEBUG = "RENDER" not in os.environ
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "agency-system.onrender.com"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
