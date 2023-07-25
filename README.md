@@ -41,4 +41,19 @@ python manage.py runserver
 * Powerful admin panel for advanced management
 
 ## Demo
+
 ![Demo Image](Demo.png)
+
+## User render credentials
+
+```shell
+login: user
+password: user12345
+```
+
+## User local credentials
+
+```shell
+login: admin_user
+password: 1qazcde3
+```
