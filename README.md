@@ -6,6 +6,19 @@ This project was created for managing newspapers and redactors in Agency
 
 [Agency Project deploved to Render](https://agency-system.onrender.com/)
 
+## Technology stack
+
+* Backend: Python 3, Django, SQLite
+* Frontend: HTML/CSS
+* Deployment: Render
+* Dependency Management: pip
+* Virtual Environment: venv
+* Version Control: Git
+* Database Migrations: Django Migrations
+* Environment Variables: .env
+* Authentication: Django Authentication
+* Other: requirements.txt
+
 ## Installation
 
 Python3 must be already installed
