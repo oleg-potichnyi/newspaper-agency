@@ -17,6 +17,7 @@ This project was created for managing newspapers and redactors in Agency
 * Database Migrations: Django Migrations
 * Environment Variables: .env
 * Authentication: Django Authentication
+* Testing: Unittest
 * Other: requirements.txt
 
 ## Installation
